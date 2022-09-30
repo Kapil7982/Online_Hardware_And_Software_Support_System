@@ -6,6 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.Bean.Complain;
+import com.Bean.Engineer;
+import com.Bean.HOD;
+import com.Uitility.DBUtil;
+
 
 
 public interface HODDao {
