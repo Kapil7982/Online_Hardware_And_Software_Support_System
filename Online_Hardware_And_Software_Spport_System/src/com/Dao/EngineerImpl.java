@@ -49,7 +49,7 @@ public class EngineerImpl implements EngineerDao{
 	@Override
 	public String updateComplainStatus(int compid, String status, Engineer eng) {
 		// TODO Auto-generated method stub
-       String msg="not updated ";
+
 		
 		try(Connection conn = DBUtil.provideConnection()) {
 			
@@ -113,7 +113,7 @@ public class EngineerImpl implements EngineerDao{
 	@Override
 	public String change_Pass(String newPass, Engineer eng) {
 		// TODO Auto-generated method stub
-         String msg = "password is not updated ";
+
 		
 		try (Connection conn = DBUtil.provideConnection()){
 			

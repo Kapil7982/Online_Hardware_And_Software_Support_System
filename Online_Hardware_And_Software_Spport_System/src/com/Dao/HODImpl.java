@@ -70,7 +70,7 @@ public class HODImpl implements HODDao{
 	@Override
 	public List<Complain> getAllComp() {
 		// TODO Auto-generated method stub
-        List<Complain> complist = new ArrayList<>();
+      List<Complain> complist = new ArrayList<>();
 		
 		try (Connection conn = DBUtil.provideConnection()){
 			
