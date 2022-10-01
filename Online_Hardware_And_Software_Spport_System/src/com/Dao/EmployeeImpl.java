@@ -39,9 +39,8 @@ public class EmployeeImpl implements EmployeeDao{
 			
 			if(rs.next()) {
 				complainid=rs.getInt("cid");
-				msg="Your Complain Id is"+complainid;
-			}else {
-				System.out.println("Complain Not Found");
+
+
 			}
 			
 					
@@ -81,7 +80,7 @@ public class EmployeeImpl implements EmployeeDao{
 				coe = new Complain_Assign_Eng(cid,status,des,category,username);
 				
 			}else {
-				System.out.println("None of the Engineer Assigned Yet ");
+
 			}
 			
 			

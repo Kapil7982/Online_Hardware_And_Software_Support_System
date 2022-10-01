@@ -45,7 +45,7 @@ public interface EmployeeDao {
 	}
 	
 	public static String regEmployee(String username, String password) {
-		String msg = "Technical Error Registration Failed ";
+
 		
 		try(Connection conn = DBUtil.provideConnection()) {
 			
@@ -77,6 +77,5 @@ public interface EmployeeDao {
 	
 	public String change_Pass(String newPass,Employee emp);
 }
-
 
 
