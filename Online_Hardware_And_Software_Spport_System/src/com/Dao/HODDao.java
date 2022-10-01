@@ -1,6 +1,6 @@
 package com.Dao;
 
-import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,17 +11,18 @@ import com.Bean.Engineer;
 import com.Bean.HOD;
 import com.Uitility.DBUtil;
 
-public interface HODDao {
+import java.sql.Connection;
 
+
+public interface HODDao {
+	
 	public static HOD checkHOD(String username ,String password) {
 		String msg = "ADMIN NOT FOUND ";
 		HOD hod = null;
 		int flag=0;
 		
-		try(Connection conn = DBUtil.provideConnection())
-		{ 
-			
-		 PreparedStatement ps = conn.prepareStatement("select * from hod where username=? and password= ? ");
+		try(Connection conn = DBUtil.provideConnection()){
+		PreparedStatement ps = conn.prepareStatement("select * from hod where username=? and password= ? ");
 			ps.setString(1, username);
 			ps.setString(2, password);
 			ResultSet rs =  ps.executeQuery();
@@ -52,5 +53,5 @@ public interface HODDao {
 	public List<Complain> getAllComp();
 	
 	public String assign_Complain_To_Eng(int compid,String eng_username);
+	
 }
-

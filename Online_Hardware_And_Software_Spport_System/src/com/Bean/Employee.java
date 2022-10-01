@@ -1,8 +1,8 @@
 package com.Bean;
 
+import com.Dao.EmployeeImpl;
 
-
-public class Employee {
+public class Employee extends EmployeeImpl{
 
 	private String username;
 	private String password;

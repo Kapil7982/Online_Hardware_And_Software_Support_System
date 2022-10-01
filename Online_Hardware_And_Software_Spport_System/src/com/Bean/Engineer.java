@@ -1,8 +1,8 @@
 package com.Bean;
 
+import com.Dao.EngineerImpl;
 
-
-public class Engineer{
+public class Engineer extends EngineerImpl{
 
 	private String username;
 	private String password;
