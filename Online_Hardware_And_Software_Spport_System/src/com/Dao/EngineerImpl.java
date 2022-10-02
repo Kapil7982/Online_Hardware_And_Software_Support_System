@@ -9,14 +9,13 @@ import java.util.List;
 
 import com.Bean.Complain;
 import com.Bean.Engineer;
-import com.Uitility.DBUtil;
+import com.Utility.DBUtil;
 
-public class EngineerImpl implements EngineerDao{
+public class EngineerIMpl implements EngineerDao {
 
 	@Override
 	public List<Complain> getCompsOfYou(Engineer eng) {
-		// TODO Auto-generated method stub
-         List<Complain> complist = new ArrayList<>();
+		List<Complain> complist = new ArrayList<>();
 		
 		try(Connection conn = DBUtil.provideConnection()) {
 			
@@ -43,18 +42,17 @@ public class EngineerImpl implements EngineerDao{
 		
 		
 		
-		return complist; 
+		return complist;
+		
 	}
 
 	@Override
-	public String updateComplainStatus(int compid, String status, Engineer eng) {
-		// TODO Auto-generated method stub
-
+	public String updateCompStatus(int compid ,String status,Engineer eng) {
+		String msg="not updated ";
 		
 		try(Connection conn = DBUtil.provideConnection()) {
 			
-			PreparedStatement ps =  conn.prepareStatement("update complain c inner join eng_com ec on c.cid=ec.cid and c.cid=? "
-					+ "and ec.cid=? and ec.eng_username=? set c.status=?;");
+			PreparedStatement ps =  conn.prepareStatement("update complain c inner join eng_com ec on c.cid=ec.cid and c.cid=? and ec.cid=? and ec.eng_username=? set c.status=?;");
 		
 			ps.setInt(1, compid);
 			ps.setInt(2, compid);
@@ -75,8 +73,7 @@ public class EngineerImpl implements EngineerDao{
 
 	@Override
 	public List<Complain> getCompHistory(Engineer eng) {
-		// TODO Auto-generated method stub
-         List<Complain> complist = new ArrayList<>();
+		List<Complain> complist = new ArrayList<>();
 		
 		try(Connection conn = DBUtil.provideConnection()) {
 			
@@ -107,13 +104,11 @@ public class EngineerImpl implements EngineerDao{
 		
 		
 		return complist;
-
 	}
 
 	@Override
-	public String change_Pass(String newPass, Engineer eng) {
-		// TODO Auto-generated method stub
-
+	public String changePass(String newPass,Engineer eng) {
+		String msg = "password not updated ";
 		
 		try (Connection conn = DBUtil.provideConnection()){
 			
@@ -132,6 +127,4 @@ public class EngineerImpl implements EngineerDao{
 		return msg;
 	}
 
-	
 }
-

@@ -9,12 +9,10 @@ import java.util.List;
 import com.Bean.Complain;
 import com.Bean.Engineer;
 import com.Bean.HOD;
-import com.Uitility.DBUtil;
-
-
+import com.Utility.DBUtil;
 
 public interface HODDao {
-
+	
 	public static HOD checkHOD(String username ,String password) {
 		String msg = "ADMIN NOT FOUND ";
 		HOD hod = null;
@@ -47,9 +45,10 @@ public interface HODDao {
 	
 	public List<Engineer> getAllEng();
 	
-	public String delete_An_Eng(String username);
+	public String deleteAnEng(String username);
 	
 	public List<Complain> getAllComp();
 	
-	public String assign_Complain_To_Eng(int compid,String eng_username);
+	public String assignCompToEng(int compid,String eng_username);
+	
 }

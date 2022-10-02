@@ -1,14 +1,13 @@
 package com.Bean;
 
+import com.Dao.EngineerIMpl;
 
-
-public class Engineer{
-
+public class Engineer extends EngineerIMpl{
+	
 	private String username;
 	private String password;
 	
 	public Engineer() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -41,4 +40,5 @@ public class Engineer{
 	
 	
 	
+
 }

@@ -8,18 +8,17 @@ import java.util.List;
 
 import com.Bean.Complain;
 import com.Bean.Engineer;
-import com.Uitility.DBUtil;
+import com.Utility.DBUtil;
 
 public interface EngineerDao {
-
+	
 	public static Engineer checkEngineer(String username , String password) {
 		String msg="ENGINEER NOT FOUND ";
 		Engineer eng= null;
 		int flag=0;
 		
 		try (Connection conn = DBUtil.provideConnection()){
-			PreparedStatement ps =  conn.prepareStatement("select * from engineer "
-					+ "where username = ? and password = ?");
+			PreparedStatement ps =  conn.prepareStatement("select * from engineer where username = ? and password = ?");
 			
 			 ps.setString(1,username);
 			 ps.setString(2, password);
@@ -75,10 +74,10 @@ public interface EngineerDao {
 	
 	public List<Complain> getCompsOfYou(Engineer eng);
 	
-	public String updateComplainStatus(int compid,String status,Engineer eng);
+	public String updateCompStatus(int compid,String status,Engineer eng);
 	
 	public List<Complain> getCompHistory(Engineer eng);
 	
-	public String change_Pass(String newPass,Engineer eng);
+	public String changePass(String newPass,Engineer eng);
 
-
+}

@@ -9,14 +9,14 @@ import java.util.List;
 
 import com.Bean.Complain;
 import com.Bean.Engineer;
-import com.Uitility.DBUtil;
+import com.Utility.DBUtil;
 
 public class HODImpl implements HODDao{
 
+
 	@Override
 	public List<Engineer> getAllEng() {
-		// TODO Auto-generated method stub
-          List<Engineer> englist= new ArrayList<>();
+		List<Engineer> englist= new ArrayList<>();
 		
 		try(Connection conn = DBUtil.provideConnection()) {
 			
@@ -41,36 +41,34 @@ public class HODImpl implements HODDao{
 
 		
 		return englist;
-	}
+		}
 
 	@Override
-	public String delete_An_Eng(String username) {
-		// TODO Auto-generated method stub
-          String msg="deletion failed ";
+	public String deleteAnEng(String username) {
+		String msg="deletion failed ";
 		
 		
 		
-			try(Connection conn = DBUtil.provideConnection()) {
-				
-				PreparedStatement ps =  conn.prepareStatement("delete from engineer where username = ?");
-				ps.setString(1, username);
-				
-				int x = ps.executeUpdate();
-				if(x>0) msg=username+" successfully deleted ";
-				
-				
-			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-			}
+		try(Connection conn = DBUtil.provideConnection()) {
+			
+			PreparedStatement ps =  conn.prepareStatement("delete from engineer where username = ?");
+			ps.setString(1, username);
+			
+			int x = ps.executeUpdate();
+			if(x>0) msg=username+" successfully deleted ";
 			
 			
-			return msg;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		return msg;
 	}
 
 	@Override
 	public List<Complain> getAllComp() {
-		// TODO Auto-generated method stub
-      List<Complain> complist = new ArrayList<>();
+		List<Complain> complist = new ArrayList<>();
 		
 		try (Connection conn = DBUtil.provideConnection()){
 			
@@ -103,13 +101,12 @@ public class HODImpl implements HODDao{
 	}
 
 	@Override
-	public String assign_Complain_To_Eng(int compid, String eng_username) {
-		// TODO Auto-generated method stub
-        String msg=compid+" is not assigned "+eng_username+" successfully ";
+	public String assignCompToEng(int compid, String eng_username) {
+		String msg=compid+" is not assigned "+eng_username+" successfully ";
 		
 		try(Connection conn = DBUtil.provideConnection()) {
 			
-			PreparedStatement ps = conn.prepareStatement("insert into eng_com values(?,?)");
+			PreparedStatement ps = conn.prepareStatement("insert into eng_com (cid,eng_username) values(?,?)");
 			ps.setInt(1, compid);
 			ps.setString(2, eng_username);
 			PreparedStatement ps2 = conn.prepareStatement("update complain set status='assigned' where cid=?");
@@ -130,7 +127,7 @@ public class HODImpl implements HODDao{
 		
 		
 		return msg;
+		
 	}
 
-	
 }

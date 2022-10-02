@@ -1,14 +1,13 @@
 package com.Bean;
 
+import com.Dao.EmployeeImpl;
 
-
-public class Employee {
-
+public class Employee extends EmployeeImpl {
+	
 	private String username;
 	private String password;
 	
 	public Employee() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -36,13 +35,10 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Enginner [username=" + username + ", password=" + password + "]";
+		return "Engineer [username=" + username + ", password=" + password + "]";
 	}
+	
+	
+	
 
-	
-	
-
-	
-	
-	
 }

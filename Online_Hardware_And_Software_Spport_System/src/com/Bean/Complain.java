@@ -1,7 +1,6 @@
 package com.Bean;
 
 public class Complain {
-
 	private int compid;
 	private String status;
 	private String des;
@@ -9,18 +8,19 @@ public class Complain {
 	private String emp_username;
 	
 	public Complain() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Complain(int compid, String status, String des, String category, String emp_username) {
+	public Complain(int compid, String status, String des, String category,String emp_username) {
 		super();
 		this.compid = compid;
 		this.status = status;
 		this.des = des;
 		this.category = category;
-		this.emp_username = emp_username;
+		this.emp_username=emp_username;
 	}
+	
+
 
 	public int getCompid() {
 		return compid;
@@ -38,11 +38,11 @@ public class Complain {
 		this.status = status;
 	}
 
-	public String getDesc() {
+	public String getDes() {
 		return des;
 	}
 
-	public void setDesc(String des) {
+	public void setDes(String des) {
 		this.des = des;
 	}
 
@@ -53,13 +53,13 @@ public class Complain {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
+	
 	public String getEmp_username() {
 		return emp_username;
 	}
 
-	public void setEmp_username(String emp_username) {
-		this.emp_username = emp_username;
+	public void setEmp_username(String username) {
+		this.emp_username= username;
 	}
 
 	@Override
@@ -69,5 +69,7 @@ public class Complain {
 	}
 	
 	
-	
+
+
+
 }

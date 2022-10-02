@@ -6,7 +6,6 @@ public class HOD {
 	private String password;
 	
 	public HOD() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -36,7 +35,6 @@ public class HOD {
 	public String toString() {
 		return "Engineer [username=" + username + ", password=" + password + "]";
 	}
-	
 	
 	
 	

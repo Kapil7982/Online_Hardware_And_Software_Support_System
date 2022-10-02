@@ -6,13 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.Bean.Complain_Assign_Eng;
+import com.Bean.Comp_Assign_Eng;
 import com.Bean.Complain;
 import com.Bean.Employee;
-import com.Uitility.DBUtil;
+import com.Utility.DBUtil;
 
 public interface EmployeeDao {
-
+	
 	public static Employee checkEmployee(String username , String password) {
 		String msg = "EMPLOYEE NOT FOUND ";
 		Employee emp = null;
@@ -45,7 +45,7 @@ public interface EmployeeDao {
 	}
 	
 	public static String regEmployee(String username, String password) {
-
+		String msg = "Technical Error Registration Failed ";
 		
 		try(Connection conn = DBUtil.provideConnection()) {
 			
@@ -69,13 +69,12 @@ public interface EmployeeDao {
 	}
 	
 	
-	public String register_Comp(String status,String des, String category,Employee emp);
+	public String regAComp(String status,String des, String category,Employee emp);
 	
-	public Complain_Assign_Eng getCompDetails(int compid,Employee emp);
+	public Comp_Assign_Eng getCompDetails(int compid,Employee emp);
 	
-	public List<Complain> getYourCompHistory(Employee emp);
+	public List<Complain> getYourCompHistory(Employee emp) throws NullPointerException;
 	
-	public String change_Pass(String newPass,Employee emp);
+	public String changePass(String newPass,Employee emp);
+
 }
-
-
